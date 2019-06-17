@@ -2,10 +2,10 @@
   <div class="service-wrapper">
     <div class="img-wrapper">
       <p v-show="pFlag1">点击请上传身份证</p>
-      <div class="icon"></div>
       <img :src="imgSrc" alt="">
       <input class="input-file" id="input-file1" type="file" accept="image/*" @change="idCardFront($event)" capture="camera"/>
     </div>
+    <div class="title">识别结果</div> 
     <div class="display" v-show="responseFlag">
       <div class="display-desc">描述</div>
       <div class="display-out">{{ out.MESSAGE }}</div>
@@ -63,7 +63,7 @@ export default {
       let _this = this
       var oFReader = new FileReader()
       var file = document.getElementById('input-file1').files[0]
-      oFReader.readAsDataURL(file);
+      oFReader.readAsDataURL(file)
       oFReader.onloadend = function(oFRevent){
         _this.imgSrc = oFRevent.target.result
         _this.pFlag1 = false
@@ -78,6 +78,17 @@ export default {
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .service-wrapper
   overflow hidden
+  .title
+    height 35px
+    width 82px !important
+    line-height 35px
+    text-align center
+    margin-left 5%
+    margin-top 10px
+    background url(../assets/5_07.png)
+    background-position 0px 0px
+    background-size 100% 100%
+    color #fff
   .display
     position relative
     width 90%
@@ -85,27 +96,21 @@ export default {
     display flex
     margin-top 5px
     >div
-      text-align center
+      text-align left
       height 35px
       line-height 35px
       font-family '微软雅黑',
       font-size 14px
-      color #fff
+      color #606266
     .display-desc
       flex 2
-      background url(../assets/5_07.png)
-      background-position 0px 0px
-      background-size 100% 100%
     .display-out
       flex 6
-      background url(../assets/5_10.png)
-      background-position 0px 0px
-      background-size 100% 100%
       margin-left 9px
-      font-size 12px
+      font-size 12px 
   .img-wrapper
     position relative
-    top 5%
+    margin-top 5%
     margin-left calc(50% - 100px)
     height 200px
     width 200px
@@ -113,8 +118,6 @@ export default {
     line-height 100px
     &:nth-child(2)
       margin-top 10px
-    .icon
-      background url(../assets/add_01.png)
     p 
       color #fff
       font-size 14px
@@ -124,7 +127,7 @@ export default {
       height 50px
       line-height 50px
       position absolute
-      width 100%
+      width 200px
     img
       display inline-block
       max-width calc(100% - 14px)

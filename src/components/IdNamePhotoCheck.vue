@@ -1,18 +1,17 @@
 <template>
   <div class="service-wrapper">
-    <div class="auoth-code">
-      <label for="">姓名</label>
-      <input type="text" v-model="name">
-    </div>
-     <div class="auoth-code">
-      <label for="">身份证</label>
-      <input type="text" v-model="idCard">
-    </div>
     <div class="img-wrapper">
       <p v-show="pFlag">点击请上传身份证正面</p>
       <img :src="imgSrc" alt="" ref='img'>
       <input id="input-file" type="file" accept="image/*" capture="camera"/>
     </div>
+    <div class="auoth-code">
+      <input type="text" v-model="name" placeholder="姓名">
+    </div>
+     <div class="auoth-code">
+      <input type="text" v-model="idCard" placeholder="身份证">
+    </div>
+
     <div class="display" v-show="responseFlag">
       <div class="display-desc">描述</div>
       <div class="display-out">{{ out }}</div>
@@ -74,16 +73,15 @@ export default {
 .service-wrapper
   overflow hidden
   .auoth-code
-    top 8%
-    &:nth-child(2) 
-      top calc(8% + 4.6875rem)
+    &:nth-child(1) 
+      margin-top: 60px;
   .display
     position relative
     width 75%
     left 12.5%
     background 12.5%
     display flex
-    top calc(8% + 180px)
+    margin-top 30px
     >div
       text-align center
       height 2.1875rem
@@ -104,7 +102,7 @@ export default {
       margin-left 9px
   .img-wrapper
     position relative
-    top calc(8% + 160px)
+    margin-top 8%
     margin-left calc(50% - 100px)
     height 200px
     width 200px
@@ -114,12 +112,11 @@ export default {
       color #fff
       font-size 14px
       font-family '微软雅黑'
-      position relative
       z-index 101
       height 50px
       line-height 50px
       position absolute
-      width 100%
+      width 200px
     img
       display inline-block
       max-width calc(100% - 14px)
@@ -138,7 +135,7 @@ export default {
     width 100%
     height 100%
   .send
-    position absolute
+    position relative
     background url(../assets/login.png)
     width 75%
     left 12.5%
@@ -151,21 +148,23 @@ export default {
     background-position 0px 0px
     background-size 100% 100%
     opacity 0.8
-    bottom 15%
+    margin-top 30px
 .auoth-code
-  position absolute
+  position relative
   width 75%
-  top 40%
+  // top 40%
+  margin-top 30px
   left 12.5%
   text-align center
   label,input
     display block
     width calc(100% - 20px)
     text-align left 
-    border 1px solid #0cebff
-    background-color rgba(23, 69, 103, .3)
+    border 1px solid #C0C4CC
+    // background-color rgba(23, 69, 103, .3)
     padding 0px 10px
-    color #0cebff
+    // color #0cebff
+    color black
     font-size 14px
     font-family '微软雅黑'
   label

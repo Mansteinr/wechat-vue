@@ -6,7 +6,7 @@ const LiveBodyV2Customer = resolve => require(['../components/LiveBodyV2Customer
 const IdNamePhotoCheck = resolve => require(['../components/IdNamePhotoCheck'], resolve) // 身份证照片三维对比
 const OcrCardCheck = resolve => require(['../components/OcrCardCheck'], resolve) // 身份证双面
 const FaceCompare = resolve => require(['../components/FaceCompare'], resolve) // 一比一人脸验证
-const Demo = resolve => require(['../components/Demo'], resolve) // 一比一人脸验证
+const composite = resolve => require(['../components/composite'], resolve) // 一比一人脸验证
 Vue.use(Router)
 
 const ruoter = new Router({
@@ -32,10 +32,15 @@ const ruoter = new Router({
     name: 'OcrCardCheck',
     component: OcrCardCheck
   }, {
-    path: '/Demo',
-    label: 'Demo',
-    name: 'Demo',
-    component: Demo
+    path: '/FaceCompare',
+    label: 'FaceCompare',
+    name: 'FaceCompare',
+    component: FaceCompare
+  }, {
+    path: '/composite',
+    label: 'composite',
+    name: 'composite',
+    component: composite
   }]
 })
 
